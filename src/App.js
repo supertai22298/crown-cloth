@@ -47,7 +47,7 @@ class App extends React.Component {
             exact
             path="/sign-in"
             render={() =>
-              this.props.currentUser ? <Redirect to='/' /> : <SignInAndSignUp />
+              this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
             }
           />
         </Switch>
@@ -56,8 +56,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = ({ userReducer: { currentUser } }) => ({
+  currentUser: currentUser,
 })
 
 const mapDispatchToProps = (dispatch) => ({
