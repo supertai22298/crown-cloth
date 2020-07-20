@@ -33,6 +33,8 @@ const CheckoutPage = ({ cartItems, cartTotal }) => (
     ))}
     <div className="total">${cartTotal}</div>
     <StripeCheckoutButton price={cartTotal} />
+    <hr />
+    <h1>https://stripe.com/docs/testing#cards</h1>
   </div>
 )
 
