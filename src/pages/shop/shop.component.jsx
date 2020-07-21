@@ -23,7 +23,14 @@ class ShopPage extends React.Component {
   componentDidMount() {
     const { setCollectionsFromFirestore } = this.props
     const collectionRef = firestore.collection('collections')
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(
+    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(
+    //   async (snapshot) => {
+    //     const collections = convertCollectionSnapshotToMap(snapshot)
+    //     setCollectionsFromFirestore(collections)
+    //     this.setState({ loading: false })
+    //   }
+    // )
+    collectionRef.get().then(
       async (snapshot) => {
         const collections = convertCollectionSnapshotToMap(snapshot)
         setCollectionsFromFirestore(collections)
@@ -32,9 +39,9 @@ class ShopPage extends React.Component {
     )
   }
 
-  componentWillUnmount() {
-    this.unsubscribeFromSnapshot()
-  }
+  // componentWillUnmount() {
+  //   this.unsubscribeFromSnapshot()
+  // }
 
   render() {
     const { match } = this.props
