@@ -19,5 +19,9 @@ export const makeSelectCollection = memoize((collectionUrlParam) =>
 )
 export const selectIsCollectionsFetching = createSelector(
   [selectShopReducer],
-  ({isFetching}) => isFetching 
+  ({ isFetching }) => isFetching
+)
+export const selectIsCollectionsLoaded = createSelector(
+  [selectShopReducer],
+  ({ collections }) => !!collections
 )
