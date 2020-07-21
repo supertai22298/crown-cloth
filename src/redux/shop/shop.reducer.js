@@ -1,5 +1,4 @@
 import { ShopActionTypes } from "./shop.action-types"
-import SHOP_DATA from './shop.data'
 const INITIAL_STATE = {
   collections: null,
 }
