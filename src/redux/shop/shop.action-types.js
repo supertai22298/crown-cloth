@@ -1,0 +1,3 @@
+export const ShopActionTypes = {
+  SET_COLLECTIONS_FROM_FIRESTORE: 'SET_COLLECTIONS_FROM_FIRESTORE',
+}
