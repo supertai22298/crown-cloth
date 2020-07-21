@@ -5,16 +5,15 @@ const selectShopReducer = (state) => state.shopReducer
 
 export const selectCollections = createSelector(
   [selectShopReducer],
-  ( {collections} ) => collections
+  ({ collections }) => collections
 )
 export const selectCollectionsArray = createSelector(
   [selectCollections],
-  (collections) => Object.values(collections)
+  (collections) => (collections ? Object.values(collections) : [])
   //(collections) => Object.keys(collections).map(key => collections[key])
 )
 export const makeSelectCollection = memoize((collectionUrlParam) =>
-  createSelector(
-    [selectCollections],
-    (collections) => collections[collectionUrlParam]
+  createSelector([selectCollections], (collections) =>
+    collections ? collections[collectionUrlParam] : null
   )
 )
