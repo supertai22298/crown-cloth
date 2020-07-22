@@ -37,7 +37,8 @@ class App extends React.Component {
         })
       }
       setCurrentUser(userAuth)
-      // Add this below code once
+
+      // Add this below code once to insert collection to
       // addCollectionAndDocuments(
       //   'collections',
       //   collectionsArray.map(({ title, items }) => ({ title, items }))
