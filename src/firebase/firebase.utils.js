@@ -63,13 +63,23 @@ export const convertCollectionSnapshotToMap = (collection) => {
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
-      title, items
+      title,
+      items,
     }
   })
   return transformCollection.reduce((acc, collection) => {
     acc[collection.title.toLowerCase()] = collection
     return acc
   }, {})
+}
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe()
+      resolve(userAuth)
+    })
+  })
 }
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
