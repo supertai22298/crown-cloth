@@ -6,7 +6,7 @@ import {
   createUserProfileDocument,
   getCurrentUser,
 } from '../../firebase/firebase.utils'
-import { signInFailure, signInSuccess, signOutFailure } from './user.actions'
+import { signInFailure, signInSuccess, signOutFailure,signOutSuccess } from './user.actions'
 
 export function* getSnapshotFromUserAuth(userAuth) {
   try {
@@ -71,7 +71,7 @@ export function* onCheckUserSession() {
 export function* signOutAsync() {
   try {
     yield auth.signOut()
-    yield put(signInSuccess())
+    yield put(signOutSuccess())
   } catch (error) {
     yield put(signOutFailure(error))
   }
