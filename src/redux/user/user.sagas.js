@@ -96,19 +96,19 @@ export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogleAsync)
 }
 
+export function* onCheckUserSession() {
+  yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated)
+}
+
+export function* onSignOutStart() {
+  yield takeLatest(UserActionTypes.SIGN_OUT_START, signOutAsync)
+}
 export function* onSignUpStart() {
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUpAsync)
 }
 
 export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp)
-}
-export function* onSignOutStart() {
-  yield takeLatest(UserActionTypes.SIGN_OUT_START, signOutAsync)
-}
-
-export function* onCheckUserSession() {
-  yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated)
 }
 export function* userSagas() {
   yield all([
